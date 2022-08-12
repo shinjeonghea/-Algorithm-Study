@@ -34,8 +34,10 @@ ORDER BY HOUR(DATETIME)
 ## [입양 시각 구하기(2)](https://school.programmers.co.kr/learn/courses/30/lessons/59413)
 ~~~sql
 SELECT 
-    @NUM := @NUM + 1 AS HOUR 
+    @NUM := @NUM + 1 AS HOUR,
+    (SELECT COUNT(HOUR(DATETIME)) FROM ANIMAL_OUTS WHERE HOUR(DATETIME) = @NUM) AS COUNT
 FROM 
-(SELECT @NUM := -1) 
+ANIMAL_OUTS AS OUTS,
+(SELECT @NUM := -1) AS NUM 
 WHERE @NUM < 23
 ~~~
