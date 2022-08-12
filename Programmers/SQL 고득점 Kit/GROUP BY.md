@@ -34,7 +34,7 @@ ORDER BY HOUR(DATETIME)
 ## [입양 시각 구하기(2)](https://school.programmers.co.kr/learn/courses/30/lessons/59413)
 ~~~sql
 SELECT 
-@NUM := @NUM + 1 AS HOUR 
+    @NUM := @NUM + 1 AS HOUR 
 FROM 
 (SELECT @NUM := -1) 
 WHERE @NUM < 23
